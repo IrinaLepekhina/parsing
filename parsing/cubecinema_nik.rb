@@ -35,14 +35,14 @@ doc.css('.showing').each do |showing|
 
   date = Time.parse(date_string)
 
-  torrent_search = 'https://rutracker.org/forum/tracker.php?nm=' + title.gsub(' ', '%20').gsub('\'','%27')
-  youtube_search = 'https://www.youtube.com/results?search_query=' + title.gsub(' ', '+').gsub('\'','%27')
+  torrent_search = "https://rutracker.org/forum/tracker.php?nm=#{title.gsub(' ', '%20').gsub('\'', '%27')}"
+  youtube_search = "https://www.youtube.com/results?search_query=#{title.gsub(' ', '+').gsub('\'', '%27')}"
 
   showings.push({
                   'id' => showing_id,
                   'title' => title,
                   'tags' => tags,
-                  #'dates' => date,
+                  # 'dates' => date,
                   'description' => description,
                   'torrent_search' => torrent_search,
                   'youtube_search' => youtube_search
