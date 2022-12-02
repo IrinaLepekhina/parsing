@@ -2,10 +2,10 @@
 
 require 'csv'
 
-# Table csv or ruby objects
+# Table csv
 class Printer
   def write_to_csv(file_name, data)
-    headers = %w[title prize prize_amount year link genre film_length animation prize_category latin torrent_search
+    headers = %w[media_type title prize prize_amount year link genre film_length animation prize_category latin torrent_search
                  youtube_search]
 
     table = CSV.generate do |csv|

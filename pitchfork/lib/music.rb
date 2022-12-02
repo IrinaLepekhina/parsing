@@ -9,14 +9,12 @@ class Music
     @genre = row[:genre]
     @score = row[:score]
     @link = row[:link]
-    @media_type = 'Music'
+    @media_type = row[:media_type]
   end
 
   def to_string
     [@artist, @album, @score, @genre]
   end
-
-
 
   # def prepare_hash(data)
   #   init_hash = []

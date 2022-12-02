@@ -42,12 +42,13 @@ class Parser
         link = l.to_s
 
         {
-          'artist' => artist,
-          'album' => album,
-          'genre' => genre,
-          'score' => score,
-          'link' => link
-          # 'review_date' => review_date
+          media_type: 'Music',
+          artist: artist,
+          album: album,
+          genre: genre,
+          score: score,
+          link: link
+          # review_date: review_date
         }
       end
       @pitchfork_reviews.push(reviews)

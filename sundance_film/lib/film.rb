@@ -2,10 +2,11 @@
 
 # film
 class Film
-  attr_accessor :title, :prize, :amount, :year, :link, :genre, :film_length, :animation, :film_stage, :latin,
+  attr_accessor :media_type, :title, :prize, :amount, :year, :link, :genre, :film_length, :animation, :film_stage, :latin,
                 :torrent_search, :youtube_search
 
   DEFAULT_HASH = {
+    media_type: nil,
     title: nil,
     prize: nil,
     prize_amount: nil,
@@ -23,6 +24,7 @@ class Film
   def initialize; end
 
   def load_data(row)
+    @media_type = 'Film'
     @title = row[:title]
     @prize = row[:prize]
     @prize_amount = row[:prize_amount]
@@ -38,7 +40,7 @@ class Film
   end
 
   def to_string
-    [@title, @year, @prize, @torrent_search, @youtube_search]
+    [@media_type, @title, @year, @prize, @torrent_search, @youtube_search]
   end
 
   def hash_for_obj(data)

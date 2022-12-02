@@ -86,7 +86,8 @@ class Parser
           youtube_search = SEARCH[:youtube] + title.gsub(' ', '+').gsub('\'',
                                                                         '%27') + '+' + year.to_s
 
-          film_hash = { title: title,
+          film_hash = { media_type: 'Film',
+                        title: title,
                         prize: prize,
                         prize_amount: 1,
                         year: year,
