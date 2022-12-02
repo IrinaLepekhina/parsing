@@ -11,12 +11,12 @@ end
 
 current_path = File.dirname(__FILE__)
 
-require "#{current_path}/parsing/meteo_xml.rb"
+require "#{current_path}/meteo_xml.rb"
 
 puts 'Music'
-require "#{current_path}/parsing/pitchfork_mec.rb"
+require "#{current_path}/pitchfork/music_advice.rb"
 
 puts '', 'Film'
-require "#{current_path}/parsing/cubecinema_nik.rb"
+require "#{current_path}/cubecinema_nik.rb"
 puts ''
-require "#{current_path}/sundance_film/sundance_nik.rb"
+require "#{current_path}/sundance_film/film_advice.rb"

@@ -11,7 +11,7 @@ module Compact
   end
 
   def compact!(obj)
-    obj.group_by { |hash| hash['title'] }.map do |_title, hashes|
+    obj.group_by { |hash| hash[:title] }.map do |_title, hashes|
       hashes.reduce do |a, b|
         a.merge(b) { |_key, v1, v2| v1 == v2 ? v1 : [v1, v2].flatten }
       end
@@ -71,13 +71,38 @@ module Brushing
                     v
                   end
 
-        film['amount'] = if film['prize'].is_a?(Array)
-                           film['prize'].size.to_s
-                         else
-                           1
-                         end
+        film[:prize_amount] = if film[:prize].is_a?(Array)
+                                film[:prize].size.to_s
+                              else
+                                1
+                              end
       end
     end
   end
   module_function :brushing
+end
+
+module CleanBracket
+  [Hash, Array].each do |klass|
+    refine klass do
+      def clean_bracket
+        CleanBracket.clean_bracket(self)
+      end
+    end
+  end
+
+  def clean_bracket(array)
+    array.each do |hash|
+      hash.each do |key, str|
+        hash[key] = (if str.is_a? Array
+                       str.join(',
+')
+                     else
+                       str
+                     end).to_s
+      end
+    end
+  end
+
+  module_function :clean_bracket
 end
